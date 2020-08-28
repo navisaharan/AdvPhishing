@@ -78,7 +78,7 @@ echo ""
 		chmod 7777 *
 		sleep 3
                 clear
-		
+		cd ~/AdvPhishing/
                 ./ngrok http 80 > /dev/null &
                 
                 echo ""
